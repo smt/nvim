@@ -1,5 +1,3 @@
-if true then return {} end -- WARN: REMOVE THIS LINE TO ACTIVATE THIS FILE
-
 -- You can also add or configure plugins by creating files in this `plugins/` folder
 -- Here are some examples:
 
@@ -8,7 +6,30 @@ return {
 
   -- == Examples of Adding Plugins ==
 
-  "andweeb/presence.nvim",
+  -- no surround plugin can beat the OG
+  {
+    "tpope/vim-surround",
+    dependencies = "tpope/vim-repeat",
+  },
+
+  -- lua port of tpope/vim-unimpaired
+  {
+    "tummetott/unimpaired.nvim",
+    lazy = false,
+    config = function()
+      require("unimpaired").setup {
+        -- add any options here or leave empty
+        keymaps = {
+          bnext = false,
+          bprevious = false,
+          next_file = false,
+          previous_file = false,
+        },
+      }
+    end,
+  },
+
+  -- show function signature as you type
   {
     "ray-x/lsp_signature.nvim",
     event = "BufRead",
@@ -23,17 +44,12 @@ return {
     opts = function(_, opts)
       -- customize the dashboard header
       opts.section.header.val = {
-        " █████  ███████ ████████ ██████   ██████",
-        "██   ██ ██         ██    ██   ██ ██    ██",
-        "███████ ███████    ██    ██████  ██    ██",
-        "██   ██      ██    ██    ██   ██ ██    ██",
-        "██   ██ ███████    ██    ██   ██  ██████",
-        " ",
-        "    ███    ██ ██    ██ ██ ███    ███",
-        "    ████   ██ ██    ██ ██ ████  ████",
-        "    ██ ██  ██ ██    ██ ██ ██ ████ ██",
-        "    ██  ██ ██  ██  ██  ██ ██  ██  ██",
-        "    ██   ████   ████   ██ ██      ██",
+        "                               __",
+        "  ___      __    ___   __  __ /\\_\\    ___ ___",
+        "/' _ `\\  /'__`\\ / __`\\/\\ \\/\\ \\\\/\\ \\ /' __` __`\\",
+        "/\\ \\/\\ \\/\\  __//\\ \\L\\ \\ \\ \\_/ |\\ \\ \\/\\ \\/\\ \\/\\ \\",
+        "\\ \\_\\ \\_\\ \\____\\ \\____/\\ \\___/  \\ \\_\\ \\_\\ \\_\\ \\_\\",
+        " \\/_/\\/_/\\/____/\\/___/  \\/__/    \\/_/\\/_/\\/_/\\/_/",
       }
       return opts
     end,

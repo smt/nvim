@@ -25,9 +25,11 @@ return {
     -- vim options can be configured here
     options = {
       opt = { -- vim.opt.<key>
+        conceallevel = 2, -- sets vim.opt.conceallevel
         relativenumber = false, -- sets vim.opt.relativenumber
         number = true, -- sets vim.opt.number
         spell = false, -- sets vim.opt.spell
+        -- showtabline = 0, -- sets vim.opt.showtabline -- if you uncomment this, you will need to add filename to the statusline somehow
         signcolumn = "auto", -- sets vim.opt.signcolumn to auto
         wrap = false, -- sets vim.opt.wrap
       },
@@ -53,6 +55,15 @@ return {
         --   function() require("astrocore.buffer").nav(-(vim.v.count > 0 and vim.v.count or 1)) end,
         --   desc = "Previous buffer",
         -- },
+
+        -- avoid the worst place in the universe
+        ["Q"] = { "<nop>" },
+
+        -- lol get rekt noob
+        ["<left>"] = false,
+        ["<down>"] = false,
+        ["<up>"] = false,
+        ["<right>"] = false,
 
         -- mappings seen under group name "Buffer"
         ["<Leader>bD"] = {
