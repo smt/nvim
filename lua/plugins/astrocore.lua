@@ -60,10 +60,10 @@ return {
         ["Q"] = { "<nop>" },
 
         -- lol get rekt noob
-        ["<left>"] = false,
-        ["<down>"] = false,
-        ["<up>"] = false,
-        ["<right>"] = false,
+        ["<Left>"] = { "<nop>" },
+        ["<Down>"] = { "<nop>" },
+        ["<Up>"] = { "<nop>" },
+        ["<Right>"] = { "<nop>" },
 
         -- mappings seen under group name "Buffer"
         ["<Leader>bD"] = {
