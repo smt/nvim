@@ -13,7 +13,6 @@ return {
         "elixirls",
         "erlangls",
         "graphql",
-        "sqlls",
         -- add more arguments for adding more language servers
       })
     end,
